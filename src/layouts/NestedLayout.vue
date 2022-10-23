@@ -15,7 +15,7 @@
   >
     <template #menuHeaderRender>
       <a>
-        <img src="/favicon.svg" />
+        <img src="/favicon.svg">
       </a>
     </template>
     <WaterMark :content="watermarkContent">
@@ -34,7 +34,10 @@
         <!-- custom right-content -->
         <template #rightContentRender>
           <div style="margin-right: 12px">
-            <a-avatar shape="square" size="small">
+            <a-avatar
+              shape="square"
+              size="small"
+            >
               <template #icon>
                 <UserOutlined />
               </template>
@@ -45,7 +48,10 @@
         <template #headerContentRender>
           <div style="height: 100%; display: flex; align-items: center">
             <a-breadcrumb>
-              <a-breadcrumb-item v-for="item of breadcrumb" :key="item.path">
+              <a-breadcrumb-item
+                v-for="item of breadcrumb"
+                :key="item.path"
+              >
                 <router-link :to="{ path: item.path, item: item.params }">
                   {{ item.breadcrumbName }}
                 </router-link>

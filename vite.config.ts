@@ -3,10 +3,8 @@ import { fileURLToPath, URL } from 'url';
 import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import vueJsx from '@vitejs/plugin-vue-jsx';
-import PkgConfig from 'vite-plugin-package-config';
 import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
-import OptimizationPersist from 'vite-plugin-optimize-persist';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import { visualizer } from 'rollup-plugin-visualizer';
 
@@ -39,8 +37,6 @@ export default defineConfig(() => {
           }),
         ],
       }),
-      PkgConfig(),
-      OptimizationPersist(),
       lifecycle === 'report' ? visualizer({ open: true, brotliSize: true, filename: 'report.html' }) : null,
     ],
     resolve: {
@@ -61,7 +57,7 @@ export default defineConfig(() => {
       },
     },
     optimizeDeps: {
-      include: ['@ant-design/icons-vue', 'ant-design-vue'],
+      include: ['@ant-design/icons-vue', '@ant-design-vue/pro-layout', 'ant-design-vue/es', 'vue', 'vue-router'],
     },
   };
 });

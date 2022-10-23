@@ -1,22 +1,44 @@
 <template>
-  <a-drawer v-model:visible="visible" :width="300" placement="right" :closable="false">
+  <a-drawer
+    v-model:visible="visible"
+    :width="300"
+    placement="right"
+    :closable="false"
+  >
     <template #handle>
-      <div class="ant-pro-setting-drawer-handle" @click="handleShowDrawer">
+      <div
+        class="ant-pro-setting-drawer-handle"
+        @click="handleShowDrawer"
+      >
         <SettingOutlined v-if="!visible" />
         <CloseOutlined v-else />
       </div>
     </template>
     <div class="margin-bottom: 24px">
       <h3>导航模式</h3>
-      <a-radio-group :value="modelValue.layout" @change="e => updateConf(e.target.value, 'layout')">
-        <a-radio value="side">左侧菜单布局</a-radio>
-        <a-radio value="top">顶部菜单布局</a-radio>
-        <a-radio value="mix">混合菜单布局</a-radio>
+      <a-radio-group
+        :value="modelValue.layout"
+        @change="e => updateConf(e.target.value, 'layout')"
+      >
+        <a-radio value="side">
+          左侧菜单布局
+        </a-radio>
+        <a-radio value="top">
+          顶部菜单布局
+        </a-radio>
+        <a-radio value="mix">
+          混合菜单布局
+        </a-radio>
       </a-radio-group>
       <a-divider />
       <a-row style="margin-bottom: 12px">
-        <a-col :span="12">固定 Header</a-col>
-        <a-col :span="12" style="text-align: right">
+        <a-col :span="12">
+          固定 Header
+        </a-col>
+        <a-col
+          :span="12"
+          style="text-align: right"
+        >
           <a-switch
             checked-children="开"
             un-checked-children="关"
@@ -26,8 +48,13 @@
         </a-col>
       </a-row>
       <a-row style="margin-bottom: 12px">
-        <a-col :span="12">固定 左侧菜单</a-col>
-        <a-col :span="12" style="text-align: right">
+        <a-col :span="12">
+          固定 左侧菜单
+        </a-col>
+        <a-col
+          :span="12"
+          style="text-align: right"
+        >
           <a-switch
             checked-children="开"
             un-checked-children="关"
@@ -37,8 +64,13 @@
         </a-col>
       </a-row>
       <a-row style="margin-bottom: 12px">
-        <a-col :span="12">自动分割菜单</a-col>
-        <a-col :span="12" style="text-align: right">
+        <a-col :span="12">
+          自动分割菜单
+        </a-col>
+        <a-col
+          :span="12"
+          style="text-align: right"
+        >
           <a-switch
             checked-children="开"
             un-checked-children="关"
@@ -51,8 +83,13 @@
       <a-divider />
       <h3>内容区域</h3>
       <a-row style="margin-bottom: 12px">
-        <a-col :span="12">顶栏</a-col>
-        <a-col :span="12" style="text-align: right">
+        <a-col :span="12">
+          顶栏
+        </a-col>
+        <a-col
+          :span="12"
+          style="text-align: right"
+        >
           <a-switch
             checked-children="开"
             un-checked-children="关"
@@ -62,8 +99,13 @@
         </a-col>
       </a-row>
       <a-row style="margin-bottom: 12px">
-        <a-col :span="12">页脚</a-col>
-        <a-col :span="12" style="text-align: right">
+        <a-col :span="12">
+          页脚
+        </a-col>
+        <a-col
+          :span="12"
+          style="text-align: right"
+        >
           <a-switch
             checked-children="开"
             un-checked-children="关"
@@ -73,8 +115,13 @@
         </a-col>
       </a-row>
       <a-row style="margin-bottom: 12px">
-        <a-col :span="12">菜单</a-col>
-        <a-col :span="12" style="text-align: right">
+        <a-col :span="12">
+          菜单
+        </a-col>
+        <a-col
+          :span="12"
+          style="text-align: right"
+        >
           <a-switch
             disabled
             checked-children="开"
@@ -85,8 +132,13 @@
         </a-col>
       </a-row>
       <a-row style="margin-bottom: 12px">
-        <a-col :span="12">菜单头</a-col>
-        <a-col :span="12" style="text-align: right">
+        <a-col :span="12">
+          菜单头
+        </a-col>
+        <a-col
+          :span="12"
+          style="text-align: right"
+        >
           <a-switch
             checked-children="开"
             un-checked-children="关"

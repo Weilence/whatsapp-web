@@ -13,7 +13,7 @@
   >
     <template #menuHeaderRender>
       <router-link :to="{ path: '/' }">
-        <img src="https://alicdn.antdv.com/v2/assets/logo.1ef800a8.svg" />
+        <img src="https://alicdn.antdv.com/v2/assets/logo.1ef800a8.svg">
         <h1>Preview Pro</h1>
       </router-link>
     </template>
@@ -26,15 +26,24 @@
         <HeartOutlined />
         {{ route.breadcrumbName }}
       </span>
-      <router-link v-else :to="{ path: route.path, params }">
+      <router-link
+        v-else
+        :to="{ path: route.path, params }"
+      >
         <SmileOutlined />
         {{ route.breadcrumbName }}
       </router-link>
     </template>
     <SettingDrawer v-model="proConfig" />
     <RouterView v-slot="{ Component, route }">
-      <transition name="slide-left" mode="out-in">
-        <component :is="Component" :key="route.path" />
+      <transition
+        name="slide-left"
+        mode="out-in"
+      >
+        <component
+          :is="Component"
+          :key="route.path"
+        />
       </transition>
     </RouterView>
   </pro-layout>
