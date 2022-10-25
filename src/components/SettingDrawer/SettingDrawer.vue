@@ -153,7 +153,6 @@
 
 <script setup lang="ts">
 import { SettingOutlined, CloseOutlined } from '@ant-design/icons-vue';
-import type { CheckedType } from 'ant-design-vue/es/switch';
 
 type ConfType = 'layout' | 'fixedHeader' | 'fixSiderbar' | string;
 
@@ -167,7 +166,7 @@ const handleShowDrawer = () => {
   visible.value = !visible.value;
 };
 
-const updateConf = (val: string | CheckedType | undefined, type: ConfType) => {
+const updateConf = (val: string | boolean | undefined, type: ConfType) => {
   const newVal = {
     ...toRaw(props.modelValue),
     [`${type}`]: val,

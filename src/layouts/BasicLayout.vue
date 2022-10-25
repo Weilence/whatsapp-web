@@ -64,7 +64,7 @@ const state = reactive<Omit<RouteContextProps, 'menuData'>>({
 });
 const loading = ref(false);
 const proConfig = ref({
-  layout: 'mix',
+  layout: 'left',
   navTheme: 'light',
   fixedHeader: true,
   fixSiderbar: true,
