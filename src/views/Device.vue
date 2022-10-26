@@ -1,32 +1,40 @@
 <template>
-  <PageContainer>
-    <a-result
-      status="404"
-      :style="{
-        height: '100%',
-        background: '#fff',
-      }"
-      title="Hello World"
-      sub-title="Sorry, you are not authorized to access this page."
+  <a-card>
+    <a-button
+      type="primary"
+      @click="open"
     >
-      <template #extra>
-        <a-button
-          type="primary"
-          @click="handleClick"
+      添加设备
+    </a-button>
+    <BaseTable
+      :data="'/device'"
+      :columns="columns"
+    >
+      <template #bodyCell="{ text, column }">
+        <a-tag
+          v-if="column.dataIndex === 'online'"
+          :color="text ? 'green' : 'red'"
         >
-          Back Home
-        </a-button>
+          {{ text ? '在线' : '离线' }}
+        </a-tag>
       </template>
-    </a-result>
-  </PageContainer>
+    </BaseTable>
+  </a-card>
 </template>
 
 <script lang="ts" setup>
-import { message } from 'ant-design-vue';
-import { PageContainer as PageContainer } from '@ant-design-vue/pro-layout';
+import BaseTable from '@/components/BaseTable/BaseTable.vue';
+import type { ColumnType } from 'ant-design-vue/es/table/interface';
+import DeviceAddModal from './DeviceAddModal.vue';
+import { useModal } from '../hooks/useModal';
 
-const handleClick = () => {
-  console.log('info');
-  message.info('BackHome button clicked!');
-};
+const columns = [
+  { title: '名称', dataIndex: 'pushName' },
+  { title: 'JID', dataIndex: 'jid' },
+  { title: '平台', dataIndex: 'platform' },
+  { title: '状态', dataIndex: 'online' },
+] as ColumnType[]
+
+const { open } = useModal(DeviceAddModal)
+
 </script>

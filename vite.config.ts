@@ -7,6 +7,8 @@ import AutoImport from 'unplugin-auto-import/vite';
 import Components from 'unplugin-vue-components/vite';
 import { AntDesignVueResolver } from 'unplugin-vue-components/resolvers';
 import { visualizer } from 'rollup-plugin-visualizer';
+import Unocss from 'unocss/vite'
+import presetUno from '@unocss/preset-uno'
 
 // https://vitejs.dev/config/
 export default defineConfig(() => {
@@ -32,9 +34,12 @@ export default defineConfig(() => {
         dirs: ['src/components'],
         extensions: ['vue', 'tsx'],
         resolvers: [
-          AntDesignVueResolver({
-            importStyle: false,
-          }),
+          AntDesignVueResolver(),
+        ],
+      }),
+      Unocss({
+        presets: [
+          presetUno(),
         ],
       }),
       lifecycle === 'report' ? visualizer({ open: true, brotliSize: true, filename: 'report.html' }) : null,
@@ -59,5 +64,10 @@ export default defineConfig(() => {
     optimizeDeps: {
       include: ['@ant-design/icons-vue', '@ant-design-vue/pro-layout', 'ant-design-vue/es', 'vue', 'vue-router'],
     },
+    server: {
+      proxy: {
+        '/api': 'http://localhost:9000',
+      }
+    }
   };
 });

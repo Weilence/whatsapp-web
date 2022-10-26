@@ -1,24 +1,20 @@
-import { createRouter, createWebHistory, createWebHashHistory } from 'vue-router';
+import { createRouter, createWebHistory } from 'vue-router';
 import BasicLayout from '../layouts/BasicLayout.vue';
 
-// only githubpages preview site used, if use template please remove this check
-// and use `createWebHistory` is recommend
-const hasGithubPages = import.meta.env.VITE_GHPAGES;
-
 export default createRouter({
-  history: hasGithubPages ? createWebHashHistory() : createWebHistory(),
+  history: createWebHistory(),
   routes: [
     {
       path: '/',
       name: 'index',
       meta: { title: 'Home' },
       component: BasicLayout,
-      redirect: '/welcome',
+      redirect: '/device',
       children: [
         {
-          path: '/welcome',
-          name: 'welcome',
-          meta: { title: '欢迎', icon: 'icon-icon-test' },
+          path: '/device',
+          name: '设备',
+          meta: { title: '设备', icon: 'icon-icon-test' },
           component: () => import('../views/Device.vue'),
         },
       ],
